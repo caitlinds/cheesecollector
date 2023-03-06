@@ -13,3 +13,9 @@ def cheeses_index(request):
   return render(request, 'cheeses/index.html', {
     'cheeses': cheeses
   })
+
+def cheeses_detail(request, cheese_id):
+  cheese = Cheese.objects.get(id=cheese_id)
+  return render(request, 'cheeses/detail.html', {
+    'cheese': cheese
+  })
