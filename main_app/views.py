@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Cheese
 
 # Create your views here.
@@ -24,3 +24,11 @@ def cheeses_detail(request, cheese_id):
 class CheeseCreate(CreateView):
   model = Cheese
   fields = '__all__'
+
+class CheeseUpdate(UpdateView):
+  model = Cheese
+  fields = ['type', 'description', 'age']
+
+class CheeseDelete(DeleteView):
+  model = Cheese
+  success_url = '/cheeses'
