@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Cheese
 
 # Create your views here.
@@ -19,3 +20,7 @@ def cheeses_detail(request, cheese_id):
   return render(request, 'cheeses/detail.html', {
     'cheese': cheese
   })
+
+class CheeseCreate(CreateView):
+  model = Cheese
+  fields = '__all__'
